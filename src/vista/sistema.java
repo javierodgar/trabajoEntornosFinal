@@ -120,6 +120,9 @@ public class sistema extends javax.swing.JFrame {
         tablaproductos.setModel(tabla);
     }
     
+    /**
+     * metodo encargado de listar los empleados
+     */
     public void listarempleados(){
          List<empleado> listaempleados = empdao.listarempleados();
          tabla = (DefaultTableModel) tablaempleados.getModel();
@@ -184,6 +187,9 @@ public class sistema extends javax.swing.JFrame {
         txtcantidadproduct.setText("");
     }
     
+    /**
+     * metodo encargado de limpiar los campos de texto de la ventana venta
+     */
     public void limpiarventa(){
         codigoventatxt.setText("");
         nombreproductoventatxt.setText("");
@@ -193,6 +199,11 @@ public class sistema extends javax.swing.JFrame {
         stocktxt.setText("");
     }
 
+    /**
+     * metodo encargadao de que el boton de gaurdar proovedor ejecute el codigo necesario
+     * al ser pulsado
+     * @param evt 
+     */
     private void btnguardarproovedorActionPerformed(java.awt.event.ActionEvent evt) {                                                    
         // TODO add your handling code here:
         if (!"".equals(txtnifproovedor.getText()) || !"".equals(txtnombreproovedor.getText()) || !"".equals(txttelefonoproovedor.getText()) || !"".equals(txtdireccionproovedor.getText())) {
@@ -1386,7 +1397,11 @@ public class sistema extends javax.swing.JFrame {
     }//GEN-LAST:event_botonclientesActionPerformed
 
    
-   
+    /**
+     * metodo encargado de que al pulsar el boton productos nos muestre eel interface grafico 
+     * de productos
+     * @param evt 
+     */
     private void productosçActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productosçActionPerformed
         // TODO add your handling code here:
         limpiartabla();
@@ -1403,9 +1418,14 @@ public class sistema extends javax.swing.JFrame {
         jTabbedPane1.setSelectedIndex(5);
     }//GEN-LAST:event_jButton11ActionPerformed
 
+    /**
+     * boton encargado de elimiar un empleado
+     * @param evt 
+     */
     private void btneliminarempleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarempleadoActionPerformed
         // TODO add your handling code here:
         if (!"".equals(txtdniempleado.getText())) {
+            //pregunta de seguridad 
             int seguridad = JOptionPane.showConfirmDialog(null, "desea elminar");
             if (seguridad == 0) {
                 String dni = txtdniempleado.getText();
@@ -1416,6 +1436,11 @@ public class sistema extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btneliminarempleadoActionPerformed
 
+    /**
+     * boton que lanza el codigo necesario para llevar acabo la modidicacion de
+     * los datos de un empleado
+     * @param evt 
+     */
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
         if (!"".equals(txtdniempleado.getText()) && !"".equals(String.valueOf(txtcontraseñaempleado.getPassword()))) {
@@ -1460,6 +1485,11 @@ public class sistema extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtapellidoempleado2ActionPerformed
 
+    /**
+     * metodo encargado de mostrar en los campos de texto de la ventana de empleados
+     * los datos de un empleado el cual cliquemos en la tabla
+     * @param evt 
+     */
     private void tablaempleadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaempleadosMouseClicked
         // TODO add your handling code here:
         int fila = tablaempleados.rowAtPoint(evt.getPoint());
@@ -1498,6 +1528,10 @@ public class sistema extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnnuevoproovedorActionPerformed
 
+    /**
+     * metodo encargado de elimiar un proovedor
+     * @param evt 
+     */
     private void btneliminarproovedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarproovedorActionPerformed
         // TODO add your handling code here:
         if (!"".equals(txtnifproovedor.getText())) {
@@ -1550,6 +1584,10 @@ public class sistema extends javax.swing.JFrame {
         txtdireccionproovedor.setText(tablaproovedores.getValueAt(fila, 4).toString());
     }//GEN-LAST:event_tablaproovedoresMouseClicked
 
+    /**
+     * boton encargado de borrar un cliente (se elimina el cliente que tenga el dni que este en el campo dni)
+     * @param evt 
+     */
     private void btneliminarcliente2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarcliente2ActionPerformed
         // TODO add your handling code here:
         if (!"".equals(txtdnicliente.getText())) {
@@ -1564,6 +1602,11 @@ public class sistema extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btneliminarcliente2ActionPerformed
 
+    /**
+     * boton encargado de modificar un cliente cambiando los datos que hayamos puesto en los campos de texto
+     * (no se puede modificar el dni)
+     * @param evt 
+     */
     private void btneditarcliente2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarcliente2ActionPerformed
         // TODO add your handling code here:
         if (!"".equals(txtdnicliente.getText())) {
@@ -1582,6 +1625,10 @@ public class sistema extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btneditarcliente2ActionPerformed
 
+    /**
+     * boton encargado de guardar un nuevo cliente en nuestra base de datos
+     * @param evt 
+     */
     private void btnguardarcliente2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarcliente2ActionPerformed
         // TODO add your handling code here:
         if (!"".equals(txtdnicliente.getText()) || !"".equals(txtnombecliente.getText()) || !"".equals(txtapellido1.getText()) || !"".equals(txtapellido2.getText()) || !"".equals(inttelefonocliente.getText())) {
@@ -1666,6 +1713,11 @@ public class sistema extends javax.swing.JFrame {
         txtdireccioncliente.setText(tablacliente.getValueAt(fila, 5).toString());
     }//GEN-LAST:event_tablaclienteMouseClicked
 
+    /**
+     * boton encargado de eliminar un prodcuto de la base de datos
+     * (se realiza la busqueda por id)
+     * @param evt 
+     */
     private void btneliminarproductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarproductActionPerformed
         // TODO add your handling code here:
         if (!"".equals(tctidproduct.getText())) {
@@ -1680,11 +1732,20 @@ public class sistema extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btneliminarproductActionPerformed
 
+    /**
+     * boton encargado de llamar a la clase excel
+     * @param evt 
+     */
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
         // TODO add your handling code here:
         Excel.reporte();
     }//GEN-LAST:event_jButton21ActionPerformed
 
+    /**
+     * boton encargado de modificar los datos de un producto
+     * (se realiza la bsuqueda por id)
+     * @param evt 
+     */
     private void btnactualizarproductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarproductActionPerformed
         // TODO add your handling code here:
         if (!"".equals(tctidproduct.getText())) {
@@ -1725,6 +1786,11 @@ public class sistema extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_listaidcatproductoActionPerformed
 
+    /**
+     * metodo encargado de mostrar los datos de un producto clicado en la tabla productos
+     * los datos se mostraran en los campos de texto del interface grafico de la pestaña productos
+     * @param evt 
+     */
     private void tablaproductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaproductosMouseClicked
         // TODO add your handling code here:
         int fila = tablaproductos.rowAtPoint(evt.getPoint());
@@ -1737,6 +1803,11 @@ public class sistema extends javax.swing.JFrame {
         listaidcatproducto.setSelectedItem(tablaproductos.getValueAt(fila, 6).toString());
     }//GEN-LAST:event_tablaproductosMouseClicked
 
+    /**
+     * metodo encargado de añadir un producto a una venta en concreto
+     * realizando las comprobaciones oportunas
+     * @param evt 
+     */
     private void cantidadventatxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cantidadventatxtKeyPressed
         // TODO add your handling code here:
         //conprobamos que el boton que se ha presionado es el enter
@@ -1792,6 +1863,11 @@ public class sistema extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cantidadventatxtKeyPressed
 
+    /**
+     * boton encargado de mostrar los datos de un producto en el interface grafico cuando escribimos su id
+     * en el campo de id de producto de la pestaña venta y damos enter
+     * @param evt 
+     */
     private void codigoventatxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_codigoventatxtKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -1821,6 +1897,11 @@ public class sistema extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_codigoventatxtActionPerformed
 
+    /**
+     * busca un empleado por su dni y muestra sus datos en la pestaña de venta, se ejecuta al dar enter
+     * esatndo el campo de texto seleccionado y dando a enter
+     * @param evt 
+     */
     private void txtdniempleadooKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtdniempleadooKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -1843,6 +1924,11 @@ public class sistema extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtdniempleadooActionPerformed
 
+    /**
+     * busca un cliente por su dni y muestra sus datos en la pestaña de venta, se ejecuta al dar enter
+     * esatndo el campo de texto seleccionado y dando a enter
+     * @param evt 
+     */
     private void dniventatxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dniventatxtKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -1891,6 +1977,10 @@ public class sistema extends javax.swing.JFrame {
         codigoventatxt.requestFocus();
     }//GEN-LAST:event_botoneliminarventaActionPerformed
 
+    /**
+     * boton encargado de renviarnos a la pestaña de login
+     * @param evt 
+     */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         login lg = new login();
@@ -1898,6 +1988,11 @@ public class sistema extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    /**
+     * metodo encargado de calcular el precio total de una venta
+     * se ejecuta cada vez que se añade o elimina un producto de una venta
+     * @return 
+     */
     private double calcularprecio(){
         totalpagar = 0.0; 
         for (int i = 0; i < tablaventa.getRowCount(); i++) {
@@ -1907,6 +2002,9 @@ public class sistema extends javax.swing.JFrame {
         return Math.round(totalpagar * 100.0) / 100.0;
     }
     
+    /**
+     * metodo encargado de guardar los datos de una venta en la base de datos
+     */
     private void guardarventa(){
         String dnicliente = dniventatxt.getText();
         String dniempleado = txtdniempleadoo.getText();
@@ -1915,6 +2013,9 @@ public class sistema extends javax.swing.JFrame {
         vtdao.registrarventa(vt);
     }
     
+    /**
+     * metodo encargado de guardar todas las lineas de una venta en la base de datos
+     */
     private void registrarlineasventa(){
         int idventa = vtdao.maxidventa();
         for (int i = 0; i < tablaventa.getRowCount(); i++) {
@@ -1929,6 +2030,9 @@ public class sistema extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * metodo encargado de calcular el nuevo stock de un producto tars añadirlo a una venta
+     */
     public void calcularstock (){
         int cantidad = Integer.parseInt(cantidadventatxt.getText());
         int stock = Integer.parseInt(stocktxt.getText());
@@ -1936,6 +2040,10 @@ public class sistema extends javax.swing.JFrame {
         int idproducto = Integer.parseInt(codigoventatxt.getText());
         vtdao.refrescarstock(nuevostock, idproducto);
     }
+    
+    /**
+     * metodo encargado de calcular el nuevo stock de un producto tras eliminarlo de la venta
+     */
      public void recuperarStock (){
         int cantidad = Integer.parseInt(tablaventa.getValueAt(tablaventa.getSelectedRow(), 5).toString());
         int idproducto = Integer.parseInt(tablaventa.getValueAt(tablaventa.getSelectedRow(), 1).toString());

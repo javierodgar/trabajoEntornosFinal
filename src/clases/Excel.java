@@ -43,6 +43,11 @@ import org.apache.poi.util.IOUtils;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  
 public class Excel {
+    /**
+     * clase encargada de la generacion de un excel 
+     * que contendra una tabla con todos los productos y sus 
+     * datos
+     */
     public static void reporte() {
  
         //creamos un nuevo libro de excel
